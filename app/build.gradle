@@ -30,6 +30,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.mcxiaoke.volley:library:1.0.19'
     implementation 'joda-time:joda-time:2.9.9'
-    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    compile 'com.google.guava:guava:19.0'
     implementation 'com.intuit.sdp:sdp-android:1.0.4'
 }
