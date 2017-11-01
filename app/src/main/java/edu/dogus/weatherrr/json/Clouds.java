@@ -5,4 +5,5 @@ package edu.dogus.weatherrr.json;
  */
 
 public class Clouds {
+
 }
