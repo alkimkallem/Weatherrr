@@ -16,14 +16,16 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".WeatherActivity" />
-        <activity
-            android:name=".AddLocationActivity"
-            android:parentActivityName=".WeatherActivity">
-        </activity>
+        </intent-filter>
+    </activity>
+    <activity android:name=".WeatherActivity" />
+    <activity
+        android:name=".AddLocationActivity"
+        android:parentActivityName=".WeatherActivity">
+    </activity>
+    <activity android:name=".ListLocationActivity">
+    </activity>
+</application>
 
-    </application>
 
-</manifest>
+    </manifest>
