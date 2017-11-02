@@ -34,12 +34,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/app_name"
+            android:src="@drawable/sun"
+            android:layout_marginTop="33.60dp"
           />
 
         <com.github.pavlospt.CircleView
             android:id="@+id/weather_result"
             android:layout_width="165.00dp"
             android:layout_height="165.00dp"
+            android:layout_marginTop="19.20dp"
             app:cv_titleSubtitleSpace="40"
             app:cv_fillColor="@color/colorBackground"
             app:cv_strokeColorValue="@color/colorCircleStroke"
@@ -65,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorSubTitle"
                     android:textStyle="bold"
+                    android:text="WIND"
                   />
 
                 <TextView
@@ -88,6 +92,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
+                    android:elevation="5.20dp"
+                    android:layout_marginTop="16.80dp"
+                    android:src="@drawable/cross"
                     />
 
             </LinearLayout>
@@ -96,6 +103,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingRight="38.40dp"
                 android:layout_weight="1">
 
                 <TextView
@@ -104,6 +112,7 @@
                     android:textColor="@color/colorSubTitle"
                     android:layout_gravity="right"
                     android:textStyle="bold"
+                    android:text="HUMIDITY"
                   />
 
                 <TextView
@@ -112,6 +121,9 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorWhite"
                     android:layout_gravity="center_horizontal"
+                    android:textSize="28.00dp"
+                    android:layout_marginTop="5.20dp"
+
                    />
 
             </LinearLayout>
