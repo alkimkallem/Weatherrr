@@ -5,28 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackground"
     tools:context="edu.dogus.weatherrr.WeatherActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
+        android:background="@color/colorBackground"
         android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/city_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorBlack"
+           />
 
         <TextView
             android:id="@+id/current_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorBlack"/>
 
         <ImageView
             android:id="@+id/weather_icon"
@@ -44,9 +46,6 @@
             android:layout_height="165.00dp"
             android:layout_marginTop="19.20dp"
             app:cv_titleSubtitleSpace="40"
-            app:cv_fillColor="@color/colorBackground"
-            app:cv_strokeColorValue="@color/colorCircleStroke"
-            app:cv_backgroundColorValue="@color/colorCircleStroke"
             app:cv_titleColor="@color/colorWhite"
             android:layout_gravity="center_horizontal"/>
 
@@ -75,7 +74,7 @@
                     android:id="@+id/wind_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
                     />
 
             </LinearLayout>
@@ -94,7 +93,7 @@
                     android:background="@android:color/transparent"
                     android:elevation="5.20dp"
                     android:layout_marginTop="16.80dp"
-                    android:src="@drawable/cross"
+                    android:src="@drawable/crosss"
                     />
 
             </LinearLayout>
@@ -119,7 +118,7 @@
                     android:id="@+id/humidity_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
                     android:layout_gravity="center_horizontal"
                     android:textSize="28.00dp"
                     android:layout_marginTop="5.20dp"
@@ -136,7 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="@color/colorBottomBackground"
+        android:background="@color/colorBackground"
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView

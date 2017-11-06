@@ -197,7 +197,6 @@ public class WeatherActivity extends AppCompatActivity implements LocationListen
                     windResult.setText(Html.fromHtml(windSpeed) + " km/h");
                     humidityResult.setText(Html.fromHtml(humidityValue) + " %");
 
-                    fiveDaysApiJsonObjectCall(locationMapObject.getName());
                 }
             }
         }, new Response.ErrorListener() {
@@ -279,73 +278,7 @@ public class WeatherActivity extends AppCompatActivity implements LocationListen
         return df.format(c.getTime());
     }
 
-    private void fiveDaysApiJsonObjectCall(String city){
-        String apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+ "&APPID="+Helper.API_KEY+"&units=metric";
-        final List<WeatherObject> daysOfTheWeek = new ArrayList<WeatherObject>();
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, apiUrl, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Response 5 days" + response);
-                GsonBuilder builder = new GsonBuilder();
-                Gson gson = builder.create();
-                Forecast forecast = gson.fromJson(response, Forecast.class);
-                if (null == forecast) {
-                    Toast.makeText(getApplicationContext(), "Nothing was returned", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Response Good", Toast.LENGTH_LONG).show();
 
-                    int[] everyday = new int[]{0,0,0,0,0,0,0};
-
-                    List<FiveWeathers> weatherInfo = forecast.getList();
-                    if(null != weatherInfo){
-                        for(int i = 0; i < weatherInfo.size(); i++){
-                            String time = weatherInfo.get(i).getDt_txt();
-                            String shortDay = convertTimeToDay(time);
-                            String temp = weatherInfo.get(i).getMain().getTemp();
-                            String tempMin = weatherInfo.get(i).getMain().getTemp_min();
-
-                            if(convertTimeToDay(time).equals("Mon") && everyday[0] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[0] = 1;
-                            }
-                            if(convertTimeToDay(time).equals("Tue") && everyday[1] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[1] = 1;
-                            }
-                            if(convertTimeToDay(time).equals("Wed") && everyday[2] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[2] = 1;
-                            }
-                            if(convertTimeToDay(time).equals("Thu") && everyday[3] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[3] = 1;
-                            }
-                            if(convertTimeToDay(time).equals("Fri") && everyday[4] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[4] = 1;
-                            }
-                            if(convertTimeToDay(time).equals("Sat") && everyday[5] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[5] = 1;
-                            }
-                            if(convertTimeToDay(time).equals("Sun") && everyday[6] < 1){
-                                daysOfTheWeek.add(new WeatherObject(shortDay, R.drawable.small_weather_icon, temp, tempMin));
-                                everyday[6] = 1;
-                            }
-                            recyclerViewAdapter = new RecyclerViewAdapter(WeatherActivity.this, daysOfTheWeek);
-                            recyclerView.setAdapter(recyclerViewAdapter);
-                        }
-                    }
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, "Error " + error.getMessage());
-            }
-        });
-        queue.add(stringRequest);
-    }
 
     private String convertTimeToDay(String time){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:SSSS", Locale.getDefault());
